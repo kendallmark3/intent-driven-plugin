@@ -19,7 +19,7 @@ read in order 00 → 08 to reconstruct the full intent.
 
 ## Suggested build order
 
-1. `00-repo-setup.md` — clone the target repo and check out a branch
+1. ~~`00-repo-setup.md` — clone the target repo and check out a branch~~ (done — kept for historical reference)
 2. `04-repository-structure.md` — scaffold the file tree
 3. `05-plugin-manifest.md` + `06-marketplace-manifest.md` — write the two manifests
 4. `02-primary-capability.md` + `03-user-experience.md` — confirm scope/UX before writing the command

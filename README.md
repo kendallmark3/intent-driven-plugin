@@ -1,13 +1,16 @@
-# intent-driven-plugin — Build Plan
+# intent-driven-plugin
 
-This repo (working copy) holds the intent that drives the build of a public
-Claude Code plugin, [intent-driven-plugin](https://github.com/kendallmark3/intent-driven-plugin).
-The full spec is broken into logical files under [intents/](intents/); this
-README summarizes the plan.
+A small, credential-free Claude Code plugin that evaluates whether a repository is ready for
+intent-driven development.
 
-## What we're building
+**Status:** intent captured, scaffolding not yet started. This repo currently holds the build
+spec (`INTENT.md`, `intents/`) and plan (this README); the plugin files themselves
+(`.claude-plugin/`, `commands/`, `skills/`) are the next step. See the architecture diagram at
+[docs/architecture-diagram.png](docs/architecture-diagram.png) for the build → use flow.
 
-A small, credential-free Claude Code plugin that adds one command:
+## What it will do
+
+Once built, the plugin adds one command:
 
 ```
 /intent-driven-plugin:intent-check
@@ -42,6 +45,7 @@ intent-driven-plugin/
 ├── examples/
 │   └── sample-intent-readiness-report.md
 ├── docs/
+│   ├── architecture-diagram.png
 │   ├── INSTALLATION.md
 │   ├── USAGE.md
 │   ├── DEVELOPMENT.md
@@ -58,15 +62,13 @@ intent-driven-plugin/
 └── INTENT.md
 ```
 
-## Build order
+## Remaining build order
 
-1. **Setup** — clone the target repo, branch, launch Claude Code ([intents/00-repo-setup.md](intents/00-repo-setup.md))
-2. **Scaffold** — create the file tree above ([intents/04-repository-structure.md](intents/04-repository-structure.md))
-3. **Manifests** — write `plugin.json` and `marketplace.json` ([intents/05-plugin-manifest.md](intents/05-plugin-manifest.md), [intents/06-marketplace-manifest.md](intents/06-marketplace-manifest.md))
-4. **Confirm scope** — re-check capability and UX requirements before writing the command ([intents/02-primary-capability.md](intents/02-primary-capability.md), [intents/03-user-experience.md](intents/03-user-experience.md))
-5. **Command** — write `commands/intent-check.md` per the 5-step spec ([intents/07-command-intent-check.md](intents/07-command-intent-check.md))
-6. **Skill** — write `skills/repository-intent-analysis/SKILL.md` ([intents/08-skill-repository-intent-analysis.md](intents/08-skill-repository-intent-analysis.md))
-7. **Fill in the rest** — `docs/`, `examples/`, `scripts/`, `tests/`, top-level `README.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `LICENSE`
+1. **Manifests** — write `plugin.json` and `marketplace.json` ([intents/05-plugin-manifest.md](intents/05-plugin-manifest.md), [intents/06-marketplace-manifest.md](intents/06-marketplace-manifest.md))
+2. **Confirm scope** — re-check capability and UX requirements before writing the command ([intents/02-primary-capability.md](intents/02-primary-capability.md), [intents/03-user-experience.md](intents/03-user-experience.md))
+3. **Command** — write `commands/intent-check.md` per the 5-step spec ([intents/07-command-intent-check.md](intents/07-command-intent-check.md))
+4. **Skill** — write `skills/repository-intent-analysis/SKILL.md` ([intents/08-skill-repository-intent-analysis.md](intents/08-skill-repository-intent-analysis.md))
+5. **Fill in the rest** — remaining `docs/`, `examples/`, `scripts/`, `tests/`, `CHANGELOG.md`, `CONTRIBUTING.md`, `LICENSE`
 
 ## Guiding constraints (apply throughout)
 
@@ -77,4 +79,6 @@ intent-driven-plugin/
 
 ## Intent files
 
-See [intents/README.md](intents/README.md) for the full index and file-by-file breakdown of the spec.
+The build spec is split into logical files under [intents/](intents/); see
+[intents/README.md](intents/README.md) for the full index. `INTENT.md` is the same spec assembled
+into a single file.

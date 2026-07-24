@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Changed
+
+- README: documented `intents/` in the repository structure tree, and added the `claude plugin`
+  CLI equivalent alongside the `/plugin` slash-command install instructions.
+- `docs/INSTALLATION.md`: added a "CLI alternative" section covering `claude plugin marketplace
+  add` / `claude plugin install` / `claude plugin list` for non-interactive terminal use.
+
 ## [0.1.0] - 2026-07-24
 
 ### Added

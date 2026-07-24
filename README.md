@@ -6,12 +6,22 @@ credentials required.
 
 ## Install
 
+Inside an interactive Claude Code session:
+
 ```
 /plugin marketplace add kendallmark3/intent-driven-plugin
 /plugin install intent-driven-plugin@intent-driven-marketplace
 ```
 
-See [docs/INSTALLATION.md](docs/INSTALLATION.md) for details.
+Or from a terminal, using the `claude` CLI directly:
+
+```
+claude plugin marketplace add kendallmark3/intent-driven-plugin
+claude plugin install intent-driven-plugin@intent-driven-marketplace
+```
+
+Both install at user scope, so the plugin is available in every future session on the machine —
+no need to repeat this per project. See [docs/INSTALLATION.md](docs/INSTALLATION.md) for details.
 
 ## Usage
 
@@ -63,6 +73,8 @@ intent-driven-plugin/
 │   └── validate-plugin.ps1
 ├── tests/
 │   └── structure-validation.md
+├── intents/
+│   └── (00-repo-setup.md … 08-skill-repository-intent-analysis.md, README.md)
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── LICENSE

@@ -1,33 +1,44 @@
-# intent-driven-plugin — Build Plan
+# intent-driven-plugin
 
-This repo (working copy) holds the intent that drives the build of a public
-Claude Code plugin, [intent-driven-plugin](https://github.com/kendallmark3/intent-driven-plugin).
-The full spec is broken into logical files under [intents/](intents/); this
-README summarizes the plan.
+A small, credential-free Claude Code plugin that evaluates whether a repository is ready for
+intent-driven development. It installs directly from this public GitHub repository — no external
+credentials required.
 
-## What we're building
+## Install
 
-A small, credential-free Claude Code plugin that adds one command:
+```
+/plugin marketplace add kendallmark3/intent-driven-plugin
+/plugin install intent-driven-plugin@intent-driven-marketplace
+```
+
+See [docs/INSTALLATION.md](docs/INSTALLATION.md) for details.
+
+## Usage
+
+Inside any repository:
 
 ```
 /intent-driven-plugin:intent-check
 ```
 
-Run inside any repository, it produces an **Intent Readiness Report** —
-purpose, stack, build/test signals, docs, CI/CD, security signals, gaps, and
-an overall rating (`Ready` / `Mostly Ready` / `Needs Preparation` / `Not Ready`)
-— plus one recommended "first intent" to attempt next. It is read-only by
-default and requires no API keys, tokens, MCP servers, or network calls.
+produces an **Intent Readiness Report** — purpose, stack, build/test signals, docs, CI/CD,
+security signals, gaps, and an overall rating (`Ready` / `Mostly Ready` / `Needs Preparation` /
+`Not Ready`) — plus one recommended "first intent" to attempt next. It is read-only by default and
+requires no API keys, tokens, MCP servers, or network calls.
+
+See [docs/USAGE.md](docs/USAGE.md) and the full
+[sample report](examples/sample-intent-readiness-report.md). Architecture overview:
+[docs/architecture-diagram.png](docs/architecture-diagram.png).
 
 | Field | Value |
 |---|---|
 | Plugin name | `intent-driven-plugin` |
 | Marketplace name | `intent-driven-marketplace` |
-| Initial version | `0.1.0` |
+| Version | `0.1.0` |
 | Repository | https://github.com/kendallmark3/intent-driven-plugin |
 | Homepage | https://intent-driven-engineering.com |
 
-## Target repository structure
+## Repository structure
 
 ```
 intent-driven-plugin/
@@ -42,6 +53,7 @@ intent-driven-plugin/
 ├── examples/
 │   └── sample-intent-readiness-report.md
 ├── docs/
+│   ├── architecture-diagram.png
 │   ├── INSTALLATION.md
 │   ├── USAGE.md
 │   ├── DEVELOPMENT.md
@@ -58,17 +70,13 @@ intent-driven-plugin/
 └── INTENT.md
 ```
 
-## Build order
+## Developing
 
-1. **Setup** — clone the target repo, branch, launch Claude Code ([intents/00-repo-setup.md](intents/00-repo-setup.md))
-2. **Scaffold** — create the file tree above ([intents/04-repository-structure.md](intents/04-repository-structure.md))
-3. **Manifests** — write `plugin.json` and `marketplace.json` ([intents/05-plugin-manifest.md](intents/05-plugin-manifest.md), [intents/06-marketplace-manifest.md](intents/06-marketplace-manifest.md))
-4. **Confirm scope** — re-check capability and UX requirements before writing the command ([intents/02-primary-capability.md](intents/02-primary-capability.md), [intents/03-user-experience.md](intents/03-user-experience.md))
-5. **Command** — write `commands/intent-check.md` per the 5-step spec ([intents/07-command-intent-check.md](intents/07-command-intent-check.md))
-6. **Skill** — write `skills/repository-intent-analysis/SKILL.md` ([intents/08-skill-repository-intent-analysis.md](intents/08-skill-repository-intent-analysis.md))
-7. **Fill in the rest** — `docs/`, `examples/`, `scripts/`, `tests/`, top-level `README.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `LICENSE`
+See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) for the local dev/test loop and
+[CONTRIBUTING.md](CONTRIBUTING.md) for the ground rules (credential-free, read-only by default,
+keep it small).
 
-## Guiding constraints (apply throughout)
+## Guiding constraints
 
 - No credentials, cloud accounts, tokens, databases, network calls, or MCP servers
 - Read-only by default; only modifies files if the user explicitly asks after reviewing a report
@@ -77,4 +85,6 @@ intent-driven-plugin/
 
 ## Intent files
 
-See [intents/README.md](intents/README.md) for the full index and file-by-file breakdown of the spec.
+This plugin was scaffolded from a written intent, split into logical files under
+[intents/](intents/) (index: [intents/README.md](intents/README.md)); `INTENT.md` is the same spec
+assembled into a single file. Kept for reference and for anyone extending the plugin the same way.

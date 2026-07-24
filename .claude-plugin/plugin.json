@@ -1,0 +1,11 @@
+{
+  "name": "intent-driven-plugin",
+  "version": "0.1.0",
+  "description": "A credential-free Claude Code plugin that evaluates whether a repository is ready for intent-driven development.",
+  "author": {
+    "name": "Mark Kendall"
+  },
+  "homepage": "https://intent-driven-engineering.com",
+  "repository": "https://github.com/kendallmark3/intent-driven-plugin",
+  "license": "MIT"
+}

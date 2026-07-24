@@ -1,0 +1,14 @@
+{
+  "name": "intent-driven-marketplace",
+  "owner": {
+    "name": "Mark Kendall"
+  },
+  "description": "Public Claude Code plugins for Intent-Driven Engineering",
+  "plugins": [
+    {
+      "name": "intent-driven-plugin",
+      "source": "./",
+      "description": "A credential-free Claude Code plugin that evaluates whether a repository is ready for intent-driven development."
+    }
+  ]
+}
